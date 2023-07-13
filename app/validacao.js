@@ -1,50 +1,44 @@
-function verificaSeOChutePossuiUmValorValido(chute){
-    const numero = + chute
-    if (chuteForInvalido(numero)) {
-        if (chute == 'Game Over' || 'game over' || 'Game over') {
-            document.body.innerHTML = `
-        <h2>GAME OVER !</h2>
-        <h3>O número secreto era ${numeroSecreto}</h3>
-        <button id="jogar-novamente" class="btn-jogar">retry ?</button>
-        `
-        } else {
-            
-        }
-        elementoChute.innerHTML += '<div> Valor inválido </div>'
-        return
+function verificaSeOChutePossuiUmValorValido(chute) {
+    const numero = + chute;
+  
+    if (Number.isNaN(numero)) {
+      if (chute.toLowerCase() === 'game over') {
+        exibirResultado('GAME OVER', numeroSecreto);
+      } else {
+        adicionarMensagem('Valor inválido');
+      }
+      return;
     }
-
-    if (numeroForMaiorOuMenorQueOValorPermitido(numero)) {
-        elementoChute.innerHTML += `<div> valor inválido: fale um número entre ${menorValor} e ${maiorValor}  </div>`
-        return
+  
+    if (numero > maiorValor || numero < menorValor) {
+      adicionarMensagem(`Valor inválido: fale um número entre ${menorValor} e ${maiorValor}`);
+      return;
     }
-
-    if (numero === numeroSecreto ) {
-        document.body.innerHTML = `
-        <h2>Você acertou!</h2>
-        <h3>O número secreto era ${numeroSecreto}</h3>
-
-        <button id="jogar-novamente" class="btn-jogar">retry</button>
-        `
-    }else if (chute > numeroSecreto) {
-        elementoChute.innerHTML += `<div> O número secreto é menor <i class="fa-solid fa-down-long"></i></div>`        
+  
+    if (numero === numeroSecreto) {
+      exibirResultado('Você acertou!', numeroSecreto);
+    } else if (chute > numeroSecreto) {
+      adicionarMensagem('O número secreto é menor <i class="fa-solid fa-down-long"></i>');
     } else {
-        elementoChute.innerHTML += `<div> O número secreto é maior <i class="fa-solid fa-up-long"></i></div>`        
+      adicionarMensagem('O número secreto é maior <i class="fa-solid fa-up-long"></i>');
     }
-
-}
-
-function chuteForInvalido(numero) {
-    return Number.isNaN(numero)
-}
-
-
-function numeroForMaiorOuMenorQueOValorPermitido(numero) {
-    return numero > maiorValor || numero < menorValor    
-}
-
-document.body.addEventListener('click', e => {
-    if (e.target.id =='jogar-novamente') {
-        window.location.reload()
+  }
+  
+  function exibirResultado(titulo, numeroSecreto) {
+    document.body.innerHTML = `
+      <h2>${titulo}</h2>
+      <h3>O número secreto era ${numeroSecreto}</h3>
+      <button id="jogar-novamente" class="btn-jogar">retry</button>
+    `;
+  }
+  
+  function adicionarMensagem(mensagem) {
+    elementoChute.innerHTML += `<div>${mensagem}</div>`;
+  }
+  
+  document.body.addEventListener('click', e => {
+    if (e.target.id == 'jogar-novamente') {
+      window.location.reload();
     }
-})
+  });
+  
