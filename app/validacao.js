@@ -4,6 +4,7 @@ function verificaSeOChutePossuiUmValorValido(chute){
         if (numero == 'Game Over' || 'game over' || 'Game over') {
             document.body.innerHTML = `
         <h2>GAME OVER !</h2>
+        <h3>O número secreto era ${numeroSecreto}</h3>
         <button id="jogar-novamente" class="btn-jogar">retry ?</button>
         `
         } else {
