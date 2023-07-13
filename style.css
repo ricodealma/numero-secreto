@@ -8,7 +8,7 @@
     --tertiary-color: #393E46;
 }
 
-body{
+body {
     background-color: var(--bg-color);
     color: var(--primary-color);
     min-height: 100vh;
@@ -21,21 +21,21 @@ body{
     font-family: var(--font-family);
 }
 
-h1{
+h1 {
     font-size: 4em;
     color: var(--secondary-color);
 }
 
-h2{
+h2 {
     font-size: 4em;
 }
 
-h3{
+h3 {
     font-size: 2em;
     margin-top: 5px;
 }
 
-.mensagem{
+.mensagem {
     font-size: 1.5em;
     margin-top: 40px;
 }
@@ -55,4 +55,5 @@ h3{
     color: var(--primary-color);
     text-decoration: none;
     margin-top: 20px;
+    font-family: var(--font-family);
 }
