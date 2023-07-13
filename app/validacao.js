@@ -1,13 +1,11 @@
-const imprimeNaTela= elementoChute.innerHTML
-
 function verificaSeOChutePossuiUmValorValido(chute){
     const numero = + chute
     if (chuteForInvalido(numero)) {
-        imprimeNaTela += '<div> Valor inválido </div>'
+        elementoChute.innerHTML += '<div> Valor inválido </div>'
     }
 
     if (numeroForMaiorOuMenorQueOValorPermitido(numero)) {
-        imprimeNaTela += `<div> valor inválido: fale um número entre ${menorValor} e ${maiorValor}  </div>`
+        elementoChute.innerHTML += `<div> valor inválido: fale um número entre ${menorValor} e ${maiorValor}  </div>`
     }
 
     if (numero === numeroSecreto ) {
@@ -18,11 +16,11 @@ function verificaSeOChutePossuiUmValorValido(chute){
     }
 
     if (chute > numeroSecreto) {
-        imprimeNaTela += '<div> Um pouco mais </div>'        
+        elementoChute.innerHTML += '<div> Um pouco mais </div>'        
     }
 
     if (chute < numeroSecreto) {
-        imprimeNaTela += '<div> Um pouco menos </div>'        
+        elementoChute.innerHTML += '<div> Um pouco menos </div>'        
     }
 
 }
