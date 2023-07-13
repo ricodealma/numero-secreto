@@ -1,5 +1,5 @@
-export default function verificaSeOChutePossuiUmValorValido(chute){
-    const numer = + chute
+function verificaSeOChutePossuiUmValorValido(chute){
+    const numero = + chute
     if (Number.isNaN(numero)) {
         console.log('Valor inválido')
     }
